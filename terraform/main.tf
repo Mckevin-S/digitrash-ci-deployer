@@ -10,7 +10,7 @@ terraform {
 
 # ==================== PROVIDER ====================
 provider "aws" {
-  region = "af-south-1"
+  region = "us-east-1"
 }
 
 # ==================== VARIABLES ====================
@@ -155,7 +155,7 @@ resource "aws_ecs_task_definition" "app" {
         logDriver = "awslogs"
         options = {
           "awslogs-group"         = aws_cloudwatch_log_group.app.name
-          "awslogs-region"        = "af-south-1"
+          "awslogs-region"        = "us-east-1"
           "awslogs-stream-prefix" = "ecs"
         }
       }
@@ -192,5 +192,5 @@ output "app_url" {
 }
 
 output "update_service_command" {
-  value = "aws ecs update-service --cluster ${var.app_name} --service ${var.app_name} --force-new-deployment --region af-south-1"
+  value = "aws ecs update-service --cluster ${var.app_name} --service ${var.app_name} --force-new-deployment --region us-east-1"
 }
