@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: digitrash-cm-bi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: digitrash-cm-bi
+  template:
+    metadata:
+      labels:
+        app: digitrash-cm-bi
+    spec:
+      containers:
+        - name: app
+          image: digitrash-cm-bi:latest
+          ports:
+            - containerPort: 8000
