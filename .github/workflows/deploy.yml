@@ -1,5 +1,4 @@
 name: CI/CD Pipeline - DIGITRANS-CM Module BI
-
 on:
   push:
     branches: [ main, develop ]
